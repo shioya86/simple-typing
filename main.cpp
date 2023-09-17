@@ -51,7 +51,7 @@ void update () {
   }
 }
 
-void print_colored_problem () {
+void print () {
   erase();
   // 四角で囲う
   mvhline(10, 28, ACS_HLINE, 32);
@@ -97,12 +97,12 @@ void print_colored_problem () {
 
 int main() {
   init_screen();
-  print_colored_problem();
+  print();
 
   auto game_thread = std::thread([] {
     while (game_flag) {
       update();
-      print_colored_problem();
+      print();
       std::this_thread::sleep_for(std::chrono::milliseconds(15));
     }
   });
